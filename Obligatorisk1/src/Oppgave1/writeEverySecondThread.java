@@ -1,18 +1,17 @@
-package oppgave1;
+package Oppgave1;
 
 public class writeEverySecondThread extends Thread{
-
     private String write = "Hello world";
 
     public void setWrite(String write){
         this.write = write;
     }
-    
+
     public void run(){
         
-        while(write != "quit"){
+        while(write.compareTo("quit") != 0){
             try {
-                Thread.sleep(1000);
+                Thread.sleep(3000);
             } catch (InterruptedException e) {
                 
             }
