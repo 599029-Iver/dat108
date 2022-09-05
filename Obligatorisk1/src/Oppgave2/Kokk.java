@@ -16,7 +16,7 @@ public class Kokk extends Thread{
         
         while(true){
             try {
-                Thread.sleep(4000);
+                Thread.sleep((4000 + (long) (Math.random() * (6000 - 4000))));
             } catch (InterruptedException e) {
                 
             }

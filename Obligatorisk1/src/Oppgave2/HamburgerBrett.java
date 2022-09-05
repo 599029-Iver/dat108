@@ -52,11 +52,14 @@ public class HamburgerBrett{
                 burgersOnBoard -= 1;
             }
             else{
-                try {
-                    burgerList.wait();
-                } catch (InterruptedException e) {
-                    
+                while(burgersOnBoard == 0){
+                    try {
+                        burgerList.wait();
+                    } catch (InterruptedException e) {
+                        
+                    }
                 }
+                
                 burgerStreng = burgerList[0];
                 burgersOnBoard -= 1;
             }
