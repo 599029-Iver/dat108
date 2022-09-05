@@ -1,5 +1,5 @@
 package Oppgave1;
-import javax.swing.*;
+
 
 public class Main {
 

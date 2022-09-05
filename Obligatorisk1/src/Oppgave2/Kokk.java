@@ -11,14 +11,19 @@ public class Kokk extends Thread{
 
 
     public void run(){
+        
+        
+        
         while(true){
             try {
-                Thread.sleep(3000);
+                Thread.sleep(4000);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                
             }
             
-            System.out.println(navn + "(kokk) legger på en hamburger" + brett.addBurger() + brett.getBurgerList());
+            System.out.println(navn + "(kokk) legger på en hamburger" + brett.addBurger());
+            
+            
         }
         
     }

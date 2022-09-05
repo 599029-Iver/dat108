@@ -13,37 +13,31 @@ public class HamburgerBrett{
         burgerList = new String[kap];
         burgersOnBoard = 0;
         burgerteller = 0;
-        
     }
 
     public String getBurgerList(){
         String returStreng = "";
-        for(String i : burgerList){
-            returStreng += i + ", ";
+        for(int i = 0; i < burgersOnBoard; i++){
+            returStreng += burgerList[i] + ", ";
         }
         return returStreng;
     }
 
     public String addBurger(){
         synchronized(burgerList){
-            if(burgersOnBoard > 4){
-                
-                burgerList[burgersOnBoard] = "(|" + burgerteller + "|)";
-
-                burgerteller += 1;
-                burgersOnBoard += 1;
+            String burgerLaget = "";
+            while(burgersOnBoard == 4){
+                try {
+                    burgerList.wait();       
+                } catch (InterruptedException e) {
+                }
             }
-            else{
-                    try {
-                        burgerList.wait();       
-                    } catch (InterruptedException e) {
-                    }
-                    burgerList[burgersOnBoard] = "(|" + burgerteller + "|)";
-                    burgerteller += 1;
-                    burgersOnBoard += 1;
-            }
+            burgerList[burgersOnBoard] = "(|" + burgerteller + "|)";
+            burgerLaget = burgerList[burgersOnBoard]; 
+            burgerteller += 1;
+            burgersOnBoard += 1;
             burgerList.notify();
-            return burgerList[burgersOnBoard-1];
+            return burgerLaget + " Det er naa disse burgerene paa brettet : " + getBurgerList();
         }
     }
     
@@ -52,10 +46,10 @@ public class HamburgerBrett{
         synchronized(burgerList){
             if(burgersOnBoard > 0){
                 burgerStreng = burgerList[0];
-                for(int i = 0; i > burgersOnBoard - 1; i++){
+                for(int i = 0; i < burgersOnBoard - 1; i++){
                     burgerList[i] = burgerList[i+1];
                 }
-                burgerList.notify();
+                burgersOnBoard -= 1;
             }
             else{
                 try {
@@ -65,9 +59,9 @@ public class HamburgerBrett{
                 }
                 burgerStreng = burgerList[0];
                 burgersOnBoard -= 1;
-
             }
-            return burgerStreng;
+            burgerList.notify();
+            return burgerStreng + " Det er naa disse burgerene paa brettet : " + getBurgerList();
         }
     }
 }

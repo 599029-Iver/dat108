@@ -11,13 +11,14 @@ public class Moffler extends Thread{
     
     public void run(){
         while(true){
+            
             try {
-                Thread.sleep(3000);
+                Thread.sleep(5000);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                
             }
-
-            System.out.println(navn + " spiser en burger, typisk " + navn + brett.removeBurger() + brett.getBurgerList());
+            System.out.println(navn + " spiser en burger, typisk " + navn + brett.removeBurger());
+            
             
         }
         
