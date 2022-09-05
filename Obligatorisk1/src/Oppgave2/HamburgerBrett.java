@@ -23,15 +23,19 @@ public class HamburgerBrett{
         return returStreng;
     }
 
-    public String addBurger(){
+    public String addBurger(String navn){
         synchronized(burgerList){
             String burgerLaget = "";
-            while(burgersOnBoard == 4){
-                try {
-                    burgerList.wait();       
-                } catch (InterruptedException e) {
+            if(burgersOnBoard == 4){
+                System.out.println(navn + " vil legge på en burger, men brettet er fullt, venter!");
+                while(burgersOnBoard == 4){
+                    try {
+                        burgerList.wait();       
+                    } catch (InterruptedException e) {
+                    }
                 }
             }
+            
             burgerList[burgersOnBoard] = "(|" + burgerteller + "|)";
             burgerLaget = burgerList[burgersOnBoard]; 
             burgerteller += 1;
@@ -41,7 +45,7 @@ public class HamburgerBrett{
         }
     }
     
-    public String removeBurger(){
+    public String removeBurger(String navn){
         String burgerStreng = "";
         synchronized(burgerList){
             if(burgersOnBoard > 0){
@@ -52,6 +56,7 @@ public class HamburgerBrett{
                 burgersOnBoard -= 1;
             }
             else{
+                System.out.println(navn + " vil spise en burger, men det er tomt, venter!");
                 while(burgersOnBoard == 0){
                     try {
                         burgerList.wait();

@@ -21,7 +21,7 @@ public class Kokk extends Thread{
                 
             }
             
-            System.out.println(navn + "(kokk) legger på en hamburger" + brett.addBurger());
+            System.out.println(navn + "(kokk) legger på en hamburger" + brett.addBurger(this.navn));
             
             
         }
