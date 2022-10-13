@@ -9,8 +9,7 @@ import Oblig3.Oppgave1.model.Handleliste;
 
 public class LoginUtil {
     private final static int MAX_INTERACTIVE_INTERVAL = 60;
-    @Value("${app.correctPass}")   
-    private String LOGIN_PASSWORD;
+    @Value("${app.correctPass}")  private final static String LOGIN_PASSWORD;
 
 	public static void loggUtBruker(HttpSession session) {
         session.invalidate();
@@ -19,6 +18,10 @@ public class LoginUtil {
 	public static void loggInnBruker(HttpServletRequest request, String passord) {
     	
         loggUtBruker(request.getSession());
+
+        if(passord.compareTo(LOGIN_PASSWORD) == 0){
+                return;//kode for returnering til login
+        }
 
         HttpSession session = request.getSession();
         session.setMaxInactiveInterval(MAX_INTERACTIVE_INTERVAL);
