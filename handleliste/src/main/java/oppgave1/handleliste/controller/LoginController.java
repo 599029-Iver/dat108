@@ -1,4 +1,4 @@
-package Oblig3.Oppgave1.controller;
+package oppgave1.handleliste.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -10,18 +10,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import Oblig3.Oppgave1.util.LoginUtil;
-
-
 
 @Controller
-@RequestMapping("/${app.url.login}")
+@RequestMapping("/login")
 public class LoginController {
+    /* 
 	
-
+	@Value("${app.message.invalidUsername}") private String INVALID_USERNAME_MESSAGE;
 	@Value("${app.url.login}")   private String LOGIN_URL;
-
-	
+	@Value("${app.url.webshop}") private String WEBSHOP_URL;
+	*/
 	/* 
 	 * GET /login er forespørselen for å hente login-skjema.
 	 */
@@ -34,13 +32,12 @@ public class LoginController {
 	 * POST /login er forespørselen for å logge inn.
 	 */
 	@PostMapping
-    public String provAaLoggeInn(@RequestParam String username,
+    public String provAaLoggeInn(@RequestParam String password,
     		HttpServletRequest request,	RedirectAttributes ra) {
 		
+
 		
-		
-		LoginUtil.loggInnBruker(request, username);
-		
-		return "redirect:" + "iver";
+		return "redirect:" + "Iver";
     }
 }
+    

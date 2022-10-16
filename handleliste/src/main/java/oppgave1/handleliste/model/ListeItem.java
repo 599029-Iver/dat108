@@ -1,4 +1,4 @@
-package Oblig3.Oppgave1.model;
+package oppgave1.handleliste.model;
 
 import java.util.Objects;
 

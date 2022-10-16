@@ -1,10 +1,10 @@
-package Oblig3.Oppgave1;
+package oppgave1.handleliste;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Oppgave1ApplicationTests {
+class HandlelisteApplicationTests {
 
 	@Test
 	void contextLoads() {
