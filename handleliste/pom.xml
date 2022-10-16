@@ -34,6 +34,7 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+<<<<<<< HEAD:handleliste/pom.xml
         	<groupId>org.apache.tomcat.embed</groupId>
         	<artifactId>tomcat-embed-jasper</artifactId>
         	<scope>provided</scope>
@@ -42,6 +43,11 @@
         	<groupId>javax.servlet</groupId>
         	<artifactId>jstl</artifactId>
     	</dependency>
+=======
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+		</dependency>
+>>>>>>> 97395bb922577d8401ec7964b8baa05c1263a3d4:Obligatorisk3/Oppgave1/Oppgave1/pom.xml
 	</dependencies>
 
 	<build>

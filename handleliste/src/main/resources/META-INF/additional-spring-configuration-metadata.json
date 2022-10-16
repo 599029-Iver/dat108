@@ -1,0 +1,13 @@
+{"properties": [{
+  "name": "app.message.wrongPass",
+  "type": "java.lang.String",
+  "description": "A description for 'app.message.wrongPass'"
+}]}{"properties": [{
+  "name": "app.correctPass",
+  "type": "java.lang.String",
+  "description": "A description for 'app.correctPass'"
+}]}{"properties": [{
+  "name": "app.url.login",
+  "type": "java.lang.String",
+  "description": "A description for 'app.url.login'"
+}]}
