@@ -1,3 +1,10 @@
 {
-    "java.configuration.updateBuildConfiguration": "interactive"
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.project.sourcePaths": [
+        "f15-sesjoner-innlogging-losning/src/main/java/no/hvl/dat108/webshop/no/hvl/dat108/webshop",
+        "dat108SkoleGithubRep/dat108-h2022/f15-sesjoner-innlogging-losning/src/main/java/no/hvl/dat108/webshop",
+        "dat108SkoleGithubRep/dat108-h2022/f15-sesjoner-innlogging-losning",
+        "Obligatorisk2/src",
+        "handleliste/src/main/java/oppgave1/handleliste"
+    ]
 }

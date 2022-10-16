@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-HandlelisteApplication<handleliste>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "oppgave1.handleliste.HandlelisteApplication",
+            "projectName": "handleliste",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
