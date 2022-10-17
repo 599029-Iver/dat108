@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class ListeItem {
     private String name;
-    private int quantity;
+    private int quantity = 1;
     
 
     public String getName() {

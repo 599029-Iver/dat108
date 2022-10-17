@@ -4,6 +4,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.ApplicationScope;
 
 import oppgave1.handleliste.model.*;
 
@@ -25,7 +27,10 @@ public class LoginUtil {
 */
         HttpSession session = request.getSession();
         session.setMaxInactiveInterval(MAX_INTERACTIVE_INTERVAL);
-        session.setAttribute("handleliste", new Handleliste());
+     //   session.setAttribute("handleliste", new Handleliste());
+
+     
+
 	}
 	
 	public static boolean erBrukerInnlogget(HttpSession session) {

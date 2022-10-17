@@ -10,21 +10,27 @@
 
 <body>
 		<h1>Din handleliste</h1>
-		<form action="login" method="post">
+		<form action="handleliste" method="post">
 			<fieldset><legend>Legg til</legend>
 			
-				<input type="text" name="password"/><br>
-				<input type="submit" value="Logg inn"/><br>
+				<input type="text" name="nyTing"/><br>
+				<input type="submit" value="Legg til"/><br>
 				
 			</fieldset>
 		</form>
-
-		<c:forEach var="ListeItem" items="${handleliste.items}"><tr>
+	<table>
+		<tr>
+			<th>Vare</th>
+			<th>Antall</th>
+		</tr>
+		<c:forEach var="ListeItem" items="${Handleliste.getItems}">
+		<tr> 
 			<td>${ListeItem.name}</td>
 			<td>${ListeItem.quantity}</td>
 
-		</tr></c:forEach>
-	</table><br>
+		</tr>
+		</c:forEach>
+	</table>
 	
 	
 </body>

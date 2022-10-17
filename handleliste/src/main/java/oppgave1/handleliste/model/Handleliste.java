@@ -3,10 +3,19 @@ package oppgave1.handleliste.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.ApplicationScope;
+
+@Component
+@ApplicationScope
 public class Handleliste {
-    private List<ListeItem> items = new ArrayList<>();
+
+
+    private static List<ListeItem> items = new ArrayList<>();
     
-    public void addItem(ListeItem item) {
+    public static void addItem(ListeItem item) {
     	
     	if (items.contains(item)) {
     		int foundAtIndex = items.indexOf(item);
@@ -19,6 +28,11 @@ public class Handleliste {
     
     public List<ListeItem> getItems() {
         return items;
+    }
+
+
+    public static String tilStreng() {
+        return items.toString();
     }
 
 }
