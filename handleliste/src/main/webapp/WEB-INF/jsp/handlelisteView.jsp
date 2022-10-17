@@ -9,8 +9,19 @@
 </head>
 
 <body>
-	
+		<h1>Din handleliste</h1>
+		<form action="login" method="post">
+			<fieldset><legend>Legg til</legend>
+			
+				<input type="text" name="password"/><br>
+				<input type="submit" value="Logg inn"/><br>
+				
+			</fieldset>
+		</form>
+
 		<c:forEach var="ListeItem" items="${handleliste.items}"><tr>
+			<td>${ListeItem.name}</td>
+			<td>${ListeItem.quantity}</td>
 
 		</tr></c:forEach>
 	</table><br>

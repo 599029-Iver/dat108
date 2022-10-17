@@ -15,7 +15,7 @@ public class LoginUtil {
         session.invalidate();
 	}
 
-	public static void loggInnBruker(HttpServletRequest request, String passord) {
+	public static void loggInnBruker(HttpServletRequest request) {
     	
         loggUtBruker(request.getSession());
 /* 
@@ -25,7 +25,6 @@ public class LoginUtil {
 */
         HttpSession session = request.getSession();
         session.setMaxInactiveInterval(MAX_INTERACTIVE_INTERVAL);
-        session.setAttribute("passord", passord);
         session.setAttribute("handleliste", new Handleliste());
 	}
 	
