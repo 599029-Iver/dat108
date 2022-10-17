@@ -25,9 +25,8 @@
 		</tr>
 		<c:forEach var="ListeItem" items="${Handleliste.getItems}">
 		<tr> 
-			<td>${ListeItem.name}</td>
-			<td>${ListeItem.quantity}</td>
-
+			<td>${ListeItem.getName}</td>
+			<td>${ListeItem.getQuantity}</td>
 		</tr>
 		</c:forEach>
 	</table>

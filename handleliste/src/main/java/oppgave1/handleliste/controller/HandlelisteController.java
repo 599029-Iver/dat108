@@ -3,6 +3,7 @@ package oppgave1.handleliste.controller;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,6 +33,9 @@ public class HandlelisteController {
       nyttElem.setName(nyTing);
       Handleliste.addItem(nyttElem);
       System.out.println(Handleliste.tilStreng());
+
+    
+     
       return "redirect:" + HANDLELISTE_URL;
 
     }

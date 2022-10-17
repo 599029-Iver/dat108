@@ -7,6 +7,8 @@ public class ListeItem {
     private int quantity = 1;
     
 
+    
+
     public String getName() {
         return name;
     }
@@ -39,6 +41,11 @@ public class ListeItem {
 		ListeItem other = (ListeItem) obj;
 		return Objects.equals(name, other.name);
 	}
+
+    @Override
+    public String toString() {
+        return "ListeItem [name=" + name + ", quantity=" + quantity + "]";
+    }
 
     
 
