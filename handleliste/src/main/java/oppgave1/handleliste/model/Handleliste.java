@@ -14,24 +14,20 @@ public class Handleliste {
 
 
     private static List<ListeItem> items = new ArrayList<>();
-    
+ 
     public static void addItem(ListeItem item) {
-    	
-    	if (items.contains(item)) {
-    		int foundAtIndex = items.indexOf(item);
-    		items.get(foundAtIndex).changeQuantity(item.getQuantity());
-    		
-    	} else {
-    		items.add(item);
-    	}
+    	items.add(item);
+    }
+    public static void removeItem(ListeItem item){
+        items.remove(item);
     }
     
-    public List<ListeItem> getItems() {
+    public static List<ListeItem> getItems() {
         return items;
     }
 
 
-    public static String tilStreng() {
+    public String tilStreng() {
         return items.toString();
     }
 

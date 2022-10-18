@@ -1,14 +1,18 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
-	<title>WebShop</title>
+	<title>Handleliste</title>
 	<link rel="stylesheet" href="css/simple.css">
 </head>
 
 <body>
+	
 		<h1>Din handleliste</h1>
 		<form action="handleliste" method="post">
 			<fieldset><legend>Legg til</legend>
@@ -18,18 +22,15 @@
 				
 			</fieldset>
 		</form>
-	<table>
-		<tr>
-			<th>Vare</th>
-			<th>Antall</th>
-		</tr>
-		<c:forEach var="ListeItem" items="${Handleliste.getItems}">
-		<tr> 
-			<td>${ListeItem.getName}</td>
-			<td>${ListeItem.getQuantity}</td>
-		</tr>
+		<br>
+		
+		<ul>
+		<c:forEach items="${Handleliste}" var="item" >
+
+				<li>${item.name} <button action="handleliste" method="post" type="submit" value="Fjern fra">Slett</button></li>
+
 		</c:forEach>
-	</table>
+		</ul>
 	
 	
 </body>

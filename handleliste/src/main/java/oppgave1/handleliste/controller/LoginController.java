@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import oppgave1.handleliste.model.Handleliste;
 import oppgave1.handleliste.util.LoginUtil;
 import oppgave1.handleliste.util.passwordCheck;
 
@@ -29,6 +30,7 @@ public class LoginController {
 	 */
 	@GetMapping
     public String hentLoginSkjema() {
+
 		return "loginView";
     }
 

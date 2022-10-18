@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class ListeItem {
     private String name;
-    private int quantity = 1;
+
     
 
     
@@ -17,18 +17,8 @@ public class ListeItem {
         this.name = name;
     }
 
-    public int getQuantity() {
-        return quantity;
-    }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
 
-    }
-
-    public void changeQuantity(int n) {
-    	quantity += n;
-    }
 
     @Override
 	public boolean equals(Object obj) {
@@ -44,9 +34,10 @@ public class ListeItem {
 
     @Override
     public String toString() {
-        return "ListeItem [name=" + name + ", quantity=" + quantity + "]";
+        return "ListeItem [name=" + name + "]";
     }
 
+    
     
 
 }
