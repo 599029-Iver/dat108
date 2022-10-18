@@ -36,7 +36,10 @@ public class HandlelisteController {
     
 
     @PostMapping
-    public String leggTilHandleliste(@RequestParam String nyTing,  HttpSession Session) {
+    public String leggTilHandleliste(@RequestParam(required = false) String nyTing,  HttpSession Session, @RequestParam(value = "fjernings", required = false) ListeItem fjernTing) {
+      if(fjernTing != null){
+        System.err.println("vi kom hit");
+      }
       ListeItem nyttElem = new ListeItem();
       nyttElem.setName(nyTing);
       Handleliste.addItem(nyttElem);
@@ -49,10 +52,7 @@ public class HandlelisteController {
     }
 
     
-    public String fjernFraHandleliste(@RequestParam ListeItem fjernTing, HttpSession Session){
-      System.err.println("vi kom hit");
-      return "redirect:" + HANDLELISTE_URL;
-    }
+
 
 
     

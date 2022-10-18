@@ -25,9 +25,9 @@
 		<br>
 		
 		<ul>
-		<c:forEach items="${Handleliste}" var="item" >
+		<c:forEach items="${Handleliste}" var="item">
 
-				<li>${item.name} <button action="handleliste" method="post" type="submit" value="Fjern fra">Slett</button></li>
+				<li>${item.name} <button action="handleliste" method="post" type="submit" value="fjernings">Slett</button></li>
 
 		</c:forEach>
 		</ul>
