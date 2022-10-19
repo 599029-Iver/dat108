@@ -1,7 +1,9 @@
 package oppgave1.handleliste.model;
 
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,6 +22,11 @@ public class Handleliste {
     }
     public static void removeItem(ListeItem item){
         items.remove(item);
+    }
+    public static ListeItem finnTing(String navn){
+        ListeItem returverdi = items.stream().filter(a -> a.getName().compareTo(navn) == 0).findFirst().orElse(null);
+
+        return returverdi;
     }
     
     public static List<ListeItem> getItems() {

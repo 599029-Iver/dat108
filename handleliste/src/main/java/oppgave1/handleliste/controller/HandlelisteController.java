@@ -18,6 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import oppgave1.handleliste.model.Handleliste;
 import oppgave1.handleliste.model.ListeItem;
+import oppgave1.handleliste.util.gyldigTingUtil;
 
 @Controller
 @RequestMapping("${app.url.handleliste}")
@@ -36,9 +37,15 @@ public class HandlelisteController {
     
 
     @PostMapping
-    public String leggTilHandleliste(@RequestParam(required = false) String nyTing,  HttpSession Session, @RequestParam(value = "fjernings", required = false) ListeItem fjernTing) {
+    public synchronized String leggTilHandleliste(@RequestParam(required = false) String nyTing,  HttpSession Session, @RequestParam(required = false) String fjernTing) {
       if(fjernTing != null){
-        System.err.println("vi kom hit");
+        Handleliste.removeItem(Handleliste.finnTing(fjernTing));
+        return "redirect:" + HANDLELISTE_URL;
+
+      }
+
+      if(!gyldigTingUtil.erGyldig(nyTing)){
+        return "redirect:" + HANDLELISTE_URL;
       }
       ListeItem nyttElem = new ListeItem();
       nyttElem.setName(nyTing);
