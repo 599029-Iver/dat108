@@ -18,6 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import oppgave1.handleliste.model.Handleliste;
 import oppgave1.handleliste.model.ListeItem;
+import oppgave1.handleliste.util.LoginUtil;
 import oppgave1.handleliste.util.gyldigTingUtil;
 
 @Controller
@@ -27,17 +28,30 @@ public class HandlelisteController {
   public List<ListeItem> handleliste;
 
   @Value("${app.url.handleliste}") private String HANDLELISTE_URL;
+  @Value("${app.url.login}")   private String LOGIN_URL;
+  @Value("${app.message.requiresLogin}") private String REQUIRES_LOGIN_MESSAGE;
+  private final static int MAX_INTERACTIVE_INTERVAL = 61;
+
 
 
     @GetMapping
     public String hentLoginSkjema(HttpSession Session) {
+
+
+      
       Session.setAttribute("Handleliste", handleliste);
+      Session.setMaxInactiveInterval(MAX_INTERACTIVE_INTERVAL);
+      
 		  return "handlelisteView";
     }
     
 
     @PostMapping
-    public synchronized String leggTilHandleliste(@RequestParam(required = false) String nyTing,  HttpSession Session, @RequestParam(required = false) String fjernTing) {
+    public synchronized String leggTilHandleliste(@RequestParam(required = false) String nyTing,  HttpSession Session, @RequestParam(required = false) String fjernTing, RedirectAttributes ra ) {
+      if (!LoginUtil.erBrukerInnlogget(Session)) {
+  
+        return "redirect:" + LOGIN_URL;
+      }
       if(fjernTing != null){
         Handleliste.removeItem(Handleliste.finnTing(fjernTing));
         return "redirect:" + HANDLELISTE_URL;
@@ -47,13 +61,12 @@ public class HandlelisteController {
       if(!gyldigTingUtil.erGyldig(nyTing)){
         return "redirect:" + HANDLELISTE_URL;
       }
+
       ListeItem nyttElem = new ListeItem();
       nyttElem.setName(nyTing);
       Handleliste.addItem(nyttElem);
       handleliste = Handleliste.getItems();
-      Session.setAttribute("Handleliste", handleliste);
-      
-     
+
       return "redirect:" + HANDLELISTE_URL;
 
     }

@@ -5,10 +5,13 @@
 <body>
     
     <div id="root"> 
-        <p><button type="button" data-dicebutton id="knapp"> 
-            Trill terning 
-        </button></p> 
-        <p>Resultat: <span data-diceoutput id="output">x</span></p> 
+        <p>
+            <button onclick="giTall()" id="knapp">Trill terning</button>
+        </p> 
+        
+        <p>
+            Resultat: <span data-diceoutput id="output">x</span>
+        </p> 
     </div> 
 
     <script src="js/diceController.js"></script>

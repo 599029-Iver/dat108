@@ -6,17 +6,13 @@ class dice {
     // Tegnet ’#’ forteller at felt eller metode er Private
     #value;
 
-    constructor(value = 6) {
-        this.#value = value;
+    constructor() {
+        this.#value = 6;
 
     }
-    /**
-    * ruller terningen
-    * @public
-    */
+ 
     rollDice() {
         this.#value = Math.ceil(Math.random() * 6);
-        return;
     }
 
     /**
@@ -32,31 +28,35 @@ class dice {
 
 class DiceController {
     // Tegnet ’#’ forteller at felt eller metode er Private
-    #rootElement;
-    #tern;
 
-    constructor(rootElement = rootElement, tern = new dice()) {
-        this.#rootElement = rootElement;
-        this.#tern = tern;
-    
+
+    constructor() {
+        //this.tern = new dice(6);
+        this.tall = new dice().getVerdi();
     }
     /**
      * 
      * @Public 
      */
      getValue(){
-        let tall = tern.getVerdi();
-        document.getElementById("output").innerHTML=(tall);
-
+        //let tall = this.tern.getVerdi();
+        document.getElementById("output").innerHTML=(this.tall);
     }
 
 }
+//let dicebutton = document.getElementById("knapp");
+//const dicebutton = rootElement.querySelector("*[data-dicebutton]");
+
+//let rootElement = new DiceController();
+
+function giTall(){
+    let kont = new DiceController();
+    kont.getValue();
+}
 
 
-let rootElement = new DiceController("output");
-
-const dicebutton = document.getElementById("knapp");
-dicebutton.addEventListener("click", rootElement.getValue);
+//dicebutton.addEventListener("click", rootElement.getValue());
+//dicebutton.addEventListener("click", giTall());
 
 
 
