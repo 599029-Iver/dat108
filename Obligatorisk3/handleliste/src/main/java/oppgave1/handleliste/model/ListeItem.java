@@ -34,7 +34,7 @@ public class ListeItem {
 
     @Override
     public String toString() {
-        return "ListeItem [name=" + name + "]";
+        return name;
     }
 
     
