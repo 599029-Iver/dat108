@@ -4,27 +4,29 @@
     <link rel="stylesheet" href="css/simple.css">
 </head>
 <h1>Paamelding</h1>
-<form>
-    <label>Fornavn : </label>
-    <input type="text" placeholder="Fyll inn fornavn">
+<form action="pamelding" method="post">
+    <label>Fornavn</label>
+    <input type="text" placeholder="Fyll inn fornavn" name="fornavn">
  
-    <label>Etternavn : </label>
-    <input type="text" placeholder="Fyll inn etternavn">
+    <label>Etternavn</label>
+    <input type="text" placeholder="Fyll inn etternavn"  name="etternavn">
   
-    <label>Mobil(8 siffer) : </label>
-    <input type="text" placeholder="Fyll inn telefonummer">
+    <label>Mobil(8 siffer)</label>
+    <input type="text" placeholder="Fyll inn telefonummer" name="mobnr">
    
-    <label>Passord : </label>
-    <input type="text" placeholder="Velg et passord">
+    <label>Passord</label>
+    <input type="text" placeholder="Velg et passord" name="password">
   
-    <label>Passord Repetert : </label>
-    <input type="text" placeholder="Gjenta passord">
+    <label>Passord Repetert</label>
+    <input type="text" placeholder="Gjenta passord" name="passwordRepeat">
  
-    <label>Kjonn : </label>
-    <input type="radio" name="kjonn" checked>
-    <label>Mann</label>
-    <input type="radio" name="kjonn">
-    <label>Kvinne</label>
+    <label>Kjonn</label><br>
+    <label>Mann<input type="radio" name="kjonn" checked></label>
+    
+    <label>Kvinne<input type="radio" name="kjonn"></label>
+    <br>
+    
+    
 
     <button type="submit">Meld meg paa</button>
   
