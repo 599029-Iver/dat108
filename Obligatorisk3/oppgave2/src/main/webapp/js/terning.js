@@ -1,32 +1,40 @@
 'use strict'
 
 class dice{
+    #value = 0;
     constructor(){
 
     }
     getValue(){
-
+        this.roll();
+        return this.#value;
     }
     roll(){
-        Math.ceil(Math.random() * 6);
+        this.#value = Math.ceil(Math.random() * 6);
     }
 }
 class diceController{
-    constructor(){
+    #dice;
+    #rootElement;
+    constructor(rootElement){
+        this.#rootElement = rootElement;
+        this.#dice = new dice();
+        const dicebutton = rootElement.querySelector("*[data-dicebutton]");
+        
+        dicebutton.addEventListener("click", this.#rollDice.bind(this));
 
+        
     }
 
     #rollDice(){
-
+        const diceOutputElement = this.#rootElement.querySelector("*[data-diceoutput]");
+        
+        diceOutputElement.innerText = this.#dice.getValue();
     }
     
 }
 
-const rootElement = new diceController("root");
-new diceController(rootElement);
-
-const dicebutton = rootElement.querySelector("*[data-dicebutton]");
-dicebutton.addEventListener("click", this.#rollDice.bind(this));
+const rootElement = new diceController(document.querySelector("#root"));
 
 
-diceoutputElement.innerText = dice.getValue();
+
