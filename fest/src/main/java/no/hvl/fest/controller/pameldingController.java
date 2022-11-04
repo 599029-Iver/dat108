@@ -4,6 +4,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import no.hvl.fest.model.registrering;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -20,7 +24,15 @@ public class pameldingController {
     }
 
     @PostMapping()
-    public String registrerPamelding() {
+    public String registrerPamelding(@RequestParam() String fornavn, 
+                                     @RequestParam() String etternavn,
+                                     @RequestParam() String mobnr, 
+                                     @RequestParam() String password,
+                                     @RequestParam() String passwordRepeat,
+                                     @RequestParam() String kjonn) {
+        
+        registrering nyReg = new registrering(fornavn, etternavn, mobnr, password, passwordRepeat, kjonn);
+        System.out.println(nyReg.toString());
 
         
         return null;

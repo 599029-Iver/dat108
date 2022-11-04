@@ -3,6 +3,13 @@
    ----------------------------------------------------------------------- */
 
 /* Global variables. */
+
+input[type="text"], input[type="password"]{
+  border-color: green;
+}
+input[type="text"]:invalid, input[type="password"]:invalid {
+  border-color: red;
+}
 :root {
     /* Set sans-serif & mono fonts */
     --sans-font: -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir,
