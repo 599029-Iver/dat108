@@ -8,8 +8,8 @@
 <html>
 <h1>Påmelding</h1>
 <form action="pamelding" method="post">
-    <label>Fornavn</label>
-    <input type="text" placeholder="Fyll inn fornavn" name="fornavn" required minlength="2" maxlength="20" pattern="^[A-Z\WÆØÅ]{1}[a-z-\WæøåA-Z\WÆØÅ ]{1-19}">
+    <label>Fornavn</label><!--^[A-Z]{1}[a-z]{1-19}-->
+    <input type="text" placeholder="Fyll inn fornavn" name="fornavn" required minlength="2" maxlength="20" pattern="^[A-Z\WÆØÅ]{1}[a-z -\WÆØÅæøå]{1-19}+$">
  
     <label>Etternavn</label>
     <input type="text" placeholder="Fyll inn etternavn"  name="etternavn" required minlength="2" maxlength="20" pattern="^[A-Z\WÆØÅ].*">
