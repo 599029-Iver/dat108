@@ -7,18 +7,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class loginUtil {
     
-   @Autowired private registreringService regServ;
     
 	public void loggUtBruker(HttpSession session) {
         session.invalidate();
     }
 
-    public void loggInnBruker(HttpServletRequest request, int MAX_INTERACTIVE_INTERVAL) {
+    public void loggInnBruker(HttpServletRequest request, int MAX_INTERACTIVE_INTERVAL, registreringService regServ) {
 
         loggUtBruker(request.getSession());
 
         HttpSession session = request.getSession();
         session.setMaxInactiveInterval(MAX_INTERACTIVE_INTERVAL);
+
+
+        /*    ---Dette er en test---
+        try{
+            System.out.println(regServ.finnAlleRegistreringer().toString());
+            System.out.println(regServ.finnMedNr("12345678"));
+        }
+        catch(NullPointerException e){
+            System.err.println("fant ikke");
+        }
+        */
+        
 
         session.setAttribute("registrerte", regServ.finnAlleRegistreringer());
         

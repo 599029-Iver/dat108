@@ -17,7 +17,10 @@ import no.hvl.fest.util.registreringService;
 @RequestMapping("${app.url.deltagere}")
 public class deltagereController {
 
+    
+
     @Value("${app.url.deltagere}") private String DELTAGERE_URL;
+    @Value("${app.url.pamelding}") private String PAMELDING_URL;
     
     
     @GetMapping
@@ -29,7 +32,7 @@ public class deltagereController {
         }
 
 
-        return DELTAGERE_URL;//Endre meg til logincontroller url
+        return PAMELDING_URL;
     }
     
     

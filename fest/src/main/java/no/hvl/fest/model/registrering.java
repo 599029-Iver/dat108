@@ -1,5 +1,6 @@
 package no.hvl.fest.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -9,19 +10,25 @@ import javax.persistence.Table;
 public class registrering {
 
     @Id
-    public String getMobnr() {
-        return mobnr;
-    }
-    
+    @Column(name = "mobnr")
     String mobnr;
+    
+    
 
+    @Column(name = "fornavn")
     String fornavn;
+    @Column(name = "etternavn")
     String etternavn;
+    @Column(name = "password")
     String password;
     //String passwordRepeat;
+    @Column(name = "kjonn")
     String kjonn;
 
 
+    public registrering(){
+        
+    }
     public registrering(String fornavn, String etternavn, String mobnr, String password, /*String passwordRepeat,*/ String kjonn){
         this.fornavn = fornavn;
         this.etternavn = etternavn;
@@ -45,8 +52,9 @@ public class registrering {
     public void setEtternavn(String etternavn) {
         this.etternavn = etternavn;
     }
-
-    
+    public String getMobnr() {
+        return mobnr;
+    }
     public void setMobnr(String mobnr) {
         this.mobnr = mobnr;
     }

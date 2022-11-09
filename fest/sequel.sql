@@ -16,3 +16,9 @@ INSERT INTO
     registrering
 VALUES
     ('Mikal', 'Bo', '12345678', 'passord', 'Kvinne');
+
+
+
+------
+SET search_path TO registrering;
+select * from registrering

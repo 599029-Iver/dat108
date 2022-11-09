@@ -19,4 +19,6 @@ public class pameldtController {
     public String getPamelding(){
         return PAMELDT_URL;
     }
+
+    
 }
