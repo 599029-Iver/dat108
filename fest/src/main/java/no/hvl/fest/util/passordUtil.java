@@ -74,27 +74,20 @@ public class passordUtil {
 	 * @return om passordet matcher
 	 */
 	public static boolean validerMedSalt(String passord, String passordDatabase) {
-        System.out.println(passordDatabase);
         String salt = finnSalt(passordDatabase);
-        
         String passordhash = finnPassHash(passordDatabase);
         
-                
 		if (passord == null || salt == null || passordhash == null) { //Burde validert skikkelig!!
 			throw new IllegalArgumentException();
 		}
 
-        System.out.println(salt);
-        System.out.println(passordhash);
-        System.out.println(hashMedSalt(passord, salt));
-		
 		return passordhash.equals(hashMedSalt(passord, salt));
 	}
 
     public static String finnSalt(String passMSalt){
-        return passMSalt.substring(0, 16);
+        return passMSalt.substring(0, 32);
     }
     public static String finnPassHash(String passMSalt){
-        return passMSalt.substring(16);
+        return passMSalt.substring(32);
     }
 }

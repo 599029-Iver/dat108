@@ -2,6 +2,7 @@ package no.hvl.fest.controller;
 
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -36,12 +37,17 @@ public class loginController {
                           @RequestParam() String password,
                           HttpServletRequest request){
 
+        //sjekker om brukeren finnes
         if(regServ.finnAlleRegistreringer().contains(regServ.finnMedNr(mobnr))){
-            System.out.println("kom hit 1");
+
+            //
             if(passordUtil.validerMedSalt(password, regServ.finnMedNr(mobnr).getPassword())){
-                System.out.println("kom hit 2");
+
                 loginUtil lutil = new loginUtil();
                 lutil.loggInnBruker(request, MAX_INTERACTIVE_INTERVAL, regServ);
+
+                HttpSession session = request.getSession();
+                session.setAttribute("registrering", regServ.finnMedNr(mobnr));
                 return "redirect:" + DELTAGERE_URL;
             }
         }
