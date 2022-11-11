@@ -16,5 +16,7 @@
 			
 		</fieldset>
 	</form>
+
+	<a href="pamelding">Ikke registrert? Registrer deg her</a>
 </body>
 </html>

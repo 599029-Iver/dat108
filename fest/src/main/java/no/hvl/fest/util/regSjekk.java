@@ -8,11 +8,20 @@ public class regSjekk {
 
     }
 
-    public boolean gyldig(registrering nyRegistrering){
+    public boolean gyldig(registrering nyRegistrering, registreringService regServ){
+        //sjekker at mobilnummeret er riktig lengde
+        if(nyRegistrering.getMobnr().length() != 8){
+            return false;
+        }
         //sjekk om mobil finnes i database
+        if(regServ.finnMedNr(nyRegistrering.getMobnr()) != null){
+            return false;
+        }        
         //sjekk om regexp
-        //sjekk om passord er like
-        // 
+        if(true){
+             //Husk meg !!
+        }
+
         return true;
     }
 }

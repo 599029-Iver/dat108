@@ -17,19 +17,7 @@ public class loginUtil {
         loggUtBruker(request.getSession());
 
         HttpSession session = request.getSession();
-        session.setMaxInactiveInterval(MAX_INTERACTIVE_INTERVAL);
-
-
-        /*    ---Dette er en test---
-        try{
-            System.out.println(regServ.finnAlleRegistreringer().toString());
-            System.out.println(regServ.finnMedNr("12345678"));
-        }
-        catch(NullPointerException e){
-            System.err.println("fant ikke");
-        }
-        */
-        
+        session.setMaxInactiveInterval(MAX_INTERACTIVE_INTERVAL);     
 
         session.setAttribute("registrerte", regServ.finnAlleRegistreringer());
         
