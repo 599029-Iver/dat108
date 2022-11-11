@@ -1,9 +1,13 @@
 package no.hvl.fest.util;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
+import no.hvl.fest.model.registrering;
 
 public class loginUtil {
     
@@ -19,7 +23,11 @@ public class loginUtil {
         HttpSession session = request.getSession();
         session.setMaxInactiveInterval(MAX_INTERACTIVE_INTERVAL);     
 
-        session.setAttribute("registrerte", regServ.finnAlleRegistreringer());
+        List<registrering> sorteingsliste = regServ.finnAlleRegistreringer();
+        sorteingsliste.sort((a,b) -> (a.getFornavn() + a.getEtternavn()).toLowerCase().compareTo((b.getFornavn() + b.getEtternavn()).toLowerCase()));
+        
+
+        session.setAttribute("registrerte", sorteingsliste);
         
 
 }

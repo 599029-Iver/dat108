@@ -2,6 +2,11 @@ package no.hvl.fest.util;
 
 import no.hvl.fest.model.registrering;
 
+
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class regSjekk {
     
     public regSjekk(){
@@ -18,8 +23,10 @@ public class regSjekk {
             return false;
         }        
         //sjekk om regexp
-        if(true){
-             //Husk meg !!
+        if(!Pattern.matches("^[A-Z/WÆØÅ]{1}[a-zA-Z/WæøåÆØÅ -]{1,19}", nyRegistrering.getFornavn()) 
+           || !Pattern.matches("^[A-Z/WÆØÅ]{1}[a-zA-Z/WæøåÆØÅ-]{1,19}", nyRegistrering.getEtternavn())){
+            System.out.println("kom hit jajamen");
+             return false;
         }
 
         return true;

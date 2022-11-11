@@ -26,6 +26,10 @@ public class registrering {
     String kjonn;
 
 
+
+ 
+
+
     public registrering(){
         
     }
