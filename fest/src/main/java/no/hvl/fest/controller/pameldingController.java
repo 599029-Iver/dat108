@@ -38,15 +38,6 @@ public class pameldingController {
     
 
     @GetMapping
-    /* 
-    @ResponseBody
-    public List<registrering> avdelinger() {
-        registrering ny = new registrering("iver", "sande", "PkjhNG_URL", "PAMELDT_URL", "PAMELDING_URL");
-        regServ.lagreNyReg(ny);
-        System.out.println(regServ.finnAlleRegistreringer());
-    	return regServ.finnAlleRegistreringer();
-    }
-     */
     public String getPamelding(){
         return PAMELDING_URL;
     }
@@ -75,7 +66,7 @@ public class pameldingController {
         regSjekk erGylig = new regSjekk();
         loginUtil lutil = new loginUtil();
 
-        if(erGylig.gyldig(nyReg)){
+        if(erGylig.gyldig(nyReg, regServ)){
 
             //Her ma vi legge til registreringen i databasen !!
             regServ.lagreNyReg(nyReg);

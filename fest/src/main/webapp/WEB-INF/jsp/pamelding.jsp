@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/simple.css">
-    <script href="js/pamelding_script.js"></script>
+    <script src="js/pamelding_script.js" defer></script>
 </head>
 <html>
 <h1>Påmelding</h1>
-<form action="pamelding" method="post">
-    <label>Fornavn</label><!--^[A-Z]{1}[a-z]{1-19}-->
-    <input type="text" placeholder="Fyll inn fornavn" name="fornavn" required minlength="2" maxlength="20" pattern="^[A-Z\WÆØÅ]{1}[a-z-\WÆØÅæøå]{1-19}">
+<form action="pamelding" method="post" id="root">
+    <label>Fornavn</label><!---->
+    <input type="text" placeholder="Fyll inn fornavn" name="fornavn" minlength="2" required pattern="^[A-Z/WÆØÅ]{1}[a-zA-Z/WæøåÆØÅ -]{1,19}" title="Fornavn må starte med stor forbokstav, deretter små"><!--Klarer ikke denne med norske bokstaver-->
  
     <label>Etternavn</label>
-    <input type="text" placeholder="Fyll inn etternavn"  name="etternavn" required minlength="2" maxlength="20" pattern="^[A-Z\WÆØÅ].*">
+    <input type="text" placeholder="Fyll inn etternavn"  name="etternavn" minlength="2" required pattern="^[A-Z/WÆØÅ]{1}[a-zA-Z/WæøåÆØÅ-]{1,19}" title="Etternavn må starte med stor forbokstav, deretter små">
   
     <label>Mobil(8 siffer)</label>
-    <input type="text" placeholder="Fyll inn telefonummer" name="mobnr" required pattern="[0-9]{8}">
+    <input type="text" placeholder="Fyll inn telefonummer" name="mobnr" required pattern="[0-9]{8}" title="Må innoholde 8 siffer, ingen flere ingen færre">
    
     <label>Passord</label>
-    <input type="text" placeholder="Velg et passord" name="password" required>
+    <input type="text" placeholder="Velg et passord" name="password" required minlength="8" data-passInput>
   
     <label>Passord Repetert</label>
-    <input type="text" placeholder="Gjenta passord" name="passwordRepeat" required>
+    <input type="text" placeholder="Gjenta passord" name="passwordRepeat" required minlength="8" data-passRepeat>
  
     <label>Kjonn</label><br>
     <label>Mann<input type="radio" name="kjonn" checked value="Mann"></label>
