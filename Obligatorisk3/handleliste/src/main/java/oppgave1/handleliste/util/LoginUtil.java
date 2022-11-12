@@ -26,8 +26,6 @@ public class LoginUtil {
                 session.setMaxInactiveInterval(MAX_INTERACTIVE_INTERVAL);
                 session.setAttribute("handleliste", Handleliste.getItems());
 
-     
-
 	}
 	
 	public boolean erBrukerInnlogget(HttpSession session) {
